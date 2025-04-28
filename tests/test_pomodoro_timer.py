@@ -9,3 +9,12 @@ def test_pomodoro_timer_start_correctly():
     timer.start()
     assert timer.is_running is True
     assert timer.end_time > timer.start_time
+
+
+def test_pomodoro_timer_reset():
+    timer = PomodoroTimer()
+    timer.start()
+    timer.reset()
+    assert timer.start_time is None
+    assert timer.end_time is None
+    assert timer.is_running is False
