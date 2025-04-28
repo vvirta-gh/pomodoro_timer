@@ -23,9 +23,8 @@ class PomodoroTimer:
         if datetime.now() >= self.end_time:
             self.is_running = False
             return "Pomodoro finished!"
-        return (
-            f"Still running...{(self.end_time - datetime.now().seconds)} seconds left"
-        )
+        remaining = (self.end_time - datetime.now()).total_seconds()
+        return f"Still running... {int(remaining)} seconds left."
 
     def reset(self):
         self.start_time = None
